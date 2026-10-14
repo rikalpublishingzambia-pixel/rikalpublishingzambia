@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rikal Publishing Zambia — Publishing Management</title>
+<style>
+:root{--navy:#17263f;--navy2:#243b5b;--gold:#d5a84f;--bg:#f4f6fa;--paper:#fff;--ink:#17233a;--muted:#6e7b90;--line:#e2e7ef;--green:#287653;--red:#a83d45;--blue:#315f9d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.5 Inter,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}
+.layout{min-height:100vh;display:grid;grid-template-columns:245px minmax(0,1fr)}aside{background:var(--navy);color:#fff;padding:24px 15px;display:flex;flex-direction:column;gap:22px}.logo{padding:0 10px 18px;border-bottom:1px solid #3a4b65}.logo strong{letter-spacing:.08em;font-size:15px}.logo strong span{color:var(--gold)}.logo small{display:block;color:#bac6d7;margin-top:5px}.navlabel{font-size:10px;letter-spacing:.15em;color:#91a1b9;padding:0 11px}.nav{display:grid;gap:5px}.nav button{border:0;text-align:left;background:transparent;color:#dce4f0;padding:11px 12px;border-radius:9px}.nav button.active,.nav button:hover{background:#2c4160;color:white}.nav button span{display:inline-block;width:27px}.sidefoot{margin-top:auto;color:#aab8cc;font-size:12px;padding:10px}
+main{min-width:0}.topbar{height:75px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;gap:14px}.topbar .eyebrow{color:var(--muted);font-size:12px}.topbar h1{font-size:20px;margin:2px 0}.profile{display:flex;align-items:center;gap:10px;font-weight:700}.avatar{width:37px;height:37px;border-radius:50%;background:#f4e8c9;color:#74571b;display:grid;place-items:center;font-weight:800}
+.content{padding:25px 30px 42px;max-width:1500px;margin:auto}.welcome{background:linear-gradient(115deg,#182943,#2b476b);color:white;border-radius:17px;padding:25px 27px;display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px}.welcome h2{font-size:25px;line-height:1.15;margin:0 0 7px}.welcome p{color:#d4deeb;margin:0;max-width:650px}.welcome .gold{color:var(--gold)}.btn{border:1px solid transparent;border-radius:9px;padding:10px 14px;font-weight:700}.btn.primary{background:var(--gold);color:#18243a}.btn.dark{background:var(--navy);color:#fff}.btn.light{background:#fff;color:var(--ink);border-color:var(--line)}.btn.danger{color:var(--red);background:#fff;border-color:#efd4d6}.btn.small{font-size:12px;padding:7px 10px}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:20px}.stat,.panel{background:var(--paper);border:1px solid var(--line);border-radius:13px}.stat{padding:17px 18px}.stat .label{color:var(--muted);font-size:12px}.stat .num{font-size:27px;font-weight:800;margin:5px 0 2px}.stat .hint{font-size:11px;color:var(--muted)}.columns{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(260px,.8fr);gap:17px}.panel{padding:19px;margin-bottom:17px;min-width:0}.panelhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}.panel h3{font-size:16px;margin:0}.muted{color:var(--muted)}.smalltext{font-size:12px}.rowline{border-top:1px solid var(--line);padding:13px 0;display:flex;align-items:center;justify-content:space-between;gap:12px}.rowline:first-of-type{border-top:0}.project-title{font-weight:750}.project-meta{font-size:12px;color:var(--muted);margin-top:3px}.pill{display:inline-block;border-radius:20px;padding:4px 9px;font-size:11px;font-weight:750;background:#eef1f6;color:#4b5a70;white-space:nowrap}.pill.green{background:#e2f3e9;color:#226846}.pill.gold{background:#f7efd9;color:#785d1d}.pill.blue{background:#e5effd;color:#315d93}.pill.red{background:#fae7e8;color:#963a40}
+.section{display:none}.section.active{display:block}.sectiontitle{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;margin-bottom:18px}.sectiontitle h2{margin:0;font-size:25px}.sectiontitle p{margin:4px 0 0;color:var(--muted)}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:11px;background:white}table{width:100%;border-collapse:collapse;min-width:700px}th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:middle}th{background:#f8f9fc;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.06em}td{font-size:13px}tr:last-child td{border-bottom:0}.empty{padding:28px;text-align:center;color:var(--muted)}
+.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.field.full{grid-column:1/-1}label{display:block;font-size:12px;font-weight:750;margin:0 0 6px}input,select,textarea{width:100%;padding:10px 11px;border:1px solid #d8dfeb;border-radius:8px;background:#fff;color:var(--ink)}textarea{min-height:90px;resize:vertical}.formactions{display:flex;gap:9px;justify-content:flex-end;margin-top:16px;flex-wrap:wrap}.overlay{position:fixed;inset:0;background:#101c2e80;display:none;align-items:center;justify-content:center;padding:16px;z-index:5}.overlay.show{display:flex}.modal{background:white;width:min(700px,100%);max-height:92vh;overflow:auto;border-radius:16px;padding:23px;box-shadow:0 25px 80px #101c2e55}.modalhead{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:17px}.modalhead h2{font-size:20px;margin:0}.close{border:0;background:#f0f2f6;border-radius:8px;padding:7px 10px}
+.servicegrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}.service{border:1px solid var(--line);background:#fff;border-radius:12px;padding:16px}.service .emoji{font-size:24px}.service h3{font-size:14px;margin:7px 0 4px}.service p{font-size:12px;color:var(--muted);margin:0 0 12px}.service .price{font-size:13px;font-weight:800}
+.note{border:1px solid #e8dcb8;background:#fff9e9;color:#6e561f;padding:12px 14px;border-radius:10px;font-size:12px;margin-bottom:16px}.success{border:1px solid #cbe8d7;background:#edfaf2;color:#226846;padding:11px 13px;border-radius:9px;margin-bottom:14px;display:none}
+.chart{display:flex;align-items:end;gap:10px;height:110px;padding-top:15px}.barcol{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;height:100%;justify-content:end}.bar{background:#d9b35f;border-radius:5px 5px 0 0;width:min(35px,75%);min-height:3px}.barcol span{font-size:10px;color:var(--muted)}
+footer{text-align:center;color:var(--muted);font-size:11px;padding:18px}
+@media(max-width:1000px){.layout{grid-template-columns:75px minmax(0,1fr)}aside{padding:20px 8px}.logo{padding:0 4px 17px;text-align:center}.logo strong{font-size:10px;letter-spacing:0}.logo small,.navlabel,.nav button .navtxt,.sidefoot{display:none}.nav button{text-align:center;padding:12px 4px}.nav button span{width:auto;font-size:18px}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.content{padding:20px}.topbar{padding:0 20px}.columns{grid-template-columns:1fr}}
+@media(max-width:650px){.layout{display:block}aside{position:sticky;top:0;z-index:3;flex-direction:row;align-items:center;padding:8px 10px;gap:8px;overflow-x:auto}.logo{border:0;padding:0 7px;min-width:100px}.logo strong{font-size:10px}.nav{display:flex;gap:3px}.nav button{padding:8px 10px;min-width:42px}.nav button span{font-size:17px}.topbar{height:64px;padding:0 15px}.topbar h1{font-size:17px}.profile .pname{display:none}.content{padding:15px}.welcome{padding:20px;display:block}.welcome h2{font-size:23px}.welcome .btn{margin-top:16px}.stats{gap:9px}.stat{padding:13px}.stat .num{font-size:23px}.servicegrid{grid-template-columns:1fr 1fr}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.sectiontitle{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside>
+  <div class="logo"><strong>RIKAL <span>PUBLISHING</span></strong><small>Zambia · Management</small></div>
+  <div class="navlabel">WORKSPACE</div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard"><span>▦</span><span class="navtxt">Dashboard</span></button>
+    <button data-page="projects"><span>📚</span><span class="navtxt">Projects</span></button>
+    <button data-page="quotes"><span>🧾</span><span class="navtxt">Quotations</span></button>
+    <button data-page="customers"><span>👥</span><span class="navtxt">Authors / Customers</span></button>
+    <button data-page="enquiry"><span>✉️</span><span class="navtxt">Author Enquiry Form</span></button>
+    <button data-page="services"><span>✦</span><span class="navtxt">Services & Pricing</span></button>
+    <button data-page="settings"><span>⚙</span><span class="navtxt">Settings & Export</span></button>
+  </nav>
+  <div class="sidefoot">Your Story, Our Expertise.<br>Prototype workspace</div>
+</aside>
+<main>
+  <div class="topbar"><div><div class="eyebrow">RIKAL PUBLISHING ZAMBIA / <span id="crumb">OVERVIEW</span></div><h1 id="pagetitle">Publishing dashboard</h1></div><div class="profile"><div class="avatar">RP</div><div class="pname">Admin workspace<div class="muted smalltext" style="font-weight:400">Local demo mode</div></div></div></div>
+  <div class="content">
+    <section id="page-dashboard" class="section active">
+      <div class="welcome"><div><h2>Good work starts with a <span class="gold">great story.</span></h2><p>Manage author enquiries, book projects, quotations and publishing services from one workspace.</p></div><button class="btn primary" onclick="openProject()">＋ New book project</button></div>
+      <div class="stats">
+        <div class="stat"><div class="label">Total book projects</div><div class="num" id="statProjects">0</div><div class="hint">All saved projects</div></div>
+        <div class="stat"><div class="label">In production</div><div class="num" id="statActive">0</div><div class="hint">Editing through publishing</div></div>
+        <div class="stat"><div class="label">Quotes issued</div><div class="num" id="statQuotes">0</div><div class="hint">Saved quotation records</div></div>
+        <div class="stat"><div class="label">Quoted value</div><div class="num" id="statValue">K0</div><div class="hint">Total saved quotation amounts</div></div>
+      </div>
+      <div class="columns">
+        <div class="panel"><div class="panelhead"><h3>Recent book projects</h3><button class="btn light small" onclick="showPage('projects')">View all</button></div><div id="recentProjects"></div></div>
+        <div>
+          <div class="panel"><div class="panelhead"><h3>Project pipeline</h3><span class="muted smalltext">Current status</span></div><div id="pipeline"></div></div>
+          <div class="panel"><h3>Quick actions</h3><p class="muted smalltext">Keep your publishing workflow moving.</p><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn dark" onclick="openProject()">＋ New project</button><button class="btn light" onclick="openQuote()">＋ Create quotation</button><button class="btn light" onclick="showPage('settings')">Export data</button></div></div>
+        </div>
+      </div>
+    </section>
+    <section id="page-projects" class="section">
+      <div class="sectiontitle"><div><h2>Book projects</h2><p>Track each manuscript from enquiry to delivery.</p></div><button class="btn dark" onclick="openProject()">＋ New project</button></div>
+      <div class="panel"><div class="panelhead"><input id="projectSearch" placeholder="Search title, author, contact…" oninput="renderProjects()" style="max-width:340px"><select id="statusFilter" onchange="renderProjects()" style="max-width:210px"><option value="">All statuses</option><option>New enquiry</option><option>Awaiting manuscript</option><option>Editing</option><option>Design & formatting</option><option>Awaiting approval</option><option>Printing / digital setup</option><option>Completed</option><option>On hold</option></select></div><div class="tablewrap"><table><thead><tr><th>Book / Author</th><th>Services</th><th>Status</th><th>Target date</th><th>Actions</th></tr></thead><tbody id="projectRows"></tbody></table></div></div>
+    </section>
+    <section id="page-quotes" class="section">
+      <div class="sectiontitle"><div><h2>Quotations</h2><p>Create a draft estimate for an author’s publishing services.</p></div><button class="btn dark" onclick="openQuote()">＋ New quotation</button></div>
+      <div class="note">Quotation totals are estimates entered by your team. Confirm the scope, taxes, printing quantities and payment terms before issuing a formal quote.</div>
+      <div class="panel"><div class="tablewrap"><table><thead><tr><th>Quote ID</th><th>Customer</th><th>Book</th><th>Amount</th><th>Status</th><th>Actions</th></tr></thead><tbody id="quoteRows"></tbody></table></div></div>
+    </section>
+    <section id="page-customers" class="section">
+      <div class="sectiontitle"><div><h2>Authors & customers</h2><p>Contacts collected through saved projects.</p></div><button class="btn light" onclick="exportCustomers()">Export contacts</button></div>
+      <div class="panel"><div class="tablewrap"><table><thead><tr><th>Author / customer</th><th>Contact</th><th>Books / projects</th><th>Last project</th></tr></thead><tbody id="customerRows"></tbody></table></div></div>
+      <p class="muted smalltext">Only contacts saved in this browser are shown. A live site should store customer records securely with access controls and a privacy notice.</p>
+    </section>
+    <section id="page-services" class="section">
+      <div class="sectiontitle"><div><h2>Services & pricing</h2><p>Illustrative service catalogue. Adjust prices to match your current business rates.</p></div></div>
+      <div class="note">Prices below are placeholders for this demo, not confirmed Rikal Publishing Zambia price commitments. Edit them before using the software with clients.</div>
+      <div class="servicegrid" id="serviceGrid"></div>
+    </section>
+
+    <section id="page-enquiry" class="section">
+      <div class="sectiontitle"><div><h2>Author enquiry form</h2><p>Visitors can complete this form and prepare an email to Rikal Publishing Zambia.</p></div></div>
+      <div class="note">This interim form opens the visitor's email app with the enquiry addressed to rikalpublishingzambia@gmail.com. The visitor must press Send. For automatic background delivery without opening an email app, connect a secure form service or server-side email integration.</div>
+      <div class="panel">
+        <form id="publicEnquiryForm">
+          <div class="formgrid">
+            <div class="field"><label for="eName">Your full name *</label><input id="eName" required placeholder="Full name"></div>
+            <div class="field"><label for="eContact">Your email or WhatsApp *</label><input id="eContact" required placeholder="How we can contact you"></div>
+            <div class="field full"><label for="eBook">Book / manuscript title *</label><input id="eBook" required placeholder="Your book title"></div>
+            <div class="field"><label for="eService">Service needed</label><select id="eService"><option>Writing support</option><option>Editing & proofreading</option><option>Book cover design</option><option>Interior formatting</option><option>Printing support</option><option>eBook / digital publishing</option><option>Full publishing package</option><option>Other / not sure yet</option></select></div>
+            <div class="field"><label for="eStage">Manuscript status</label><select id="eStage"><option>Still writing</option><option>First draft ready</option><option>Needs editing</option><option>Final manuscript ready</option><option>Already published</option></select></div>
+            <div class="field full"><label for="eMessage">Tell us about your book *</label><textarea id="eMessage" required placeholder="Word count, audience, required services, preferred timeline…"></textarea></div>
+          </div>
+          <div class="formactions"><button type="submit" class="btn dark">Prepare email enquiry ↗</button></div>
+          <p class="muted smalltext">To: rikalpublishingzambia@gmail.com</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="page-settings" class="section">
+      <div class="sectiontitle"><div><h2>Settings & data</h2><p>Configure the demo brand details and back up local records.</p></div></div>
+      <div class="panel"><h3>Business profile</h3><div class="formgrid" style="margin-top:14px"><div class="field"><label>Business name</label><input id="settingName" value="Rikal Publishing Zambia"></div><div class="field"><label>Business email</label><input id="settingEmail" value="rikalpublishingzambia@gmail.com"></div><div class="field"><label>Currency</label><select id="settingCurrency"><option value="K">ZMW — Zambian Kwacha (K)</option><option value="$">USD ($)</option></select></div><div class="field"><label>WhatsApp / phone</label><input id="settingPhone" placeholder="Add your business contact"></div></div><div class="formactions"><button class="btn dark" onclick="saveSettings()">Save settings</button></div><div id="settingsSaved" class="success" style="margin-top:12px">Settings saved on this device.</div></div>
+      <div class="panel"><h3>Back up your records</h3><p class="muted smalltext">Download your current demo data so you can keep a copy or move it to another system.</p><div style="display:flex;gap:9px;flex-wrap:wrap"><button class="btn dark" onclick="exportAll()">Export all data (.json)</button><button class="btn light" onclick="exportProjectsCSV()">Export projects (.csv)</button><button class="btn danger" onclick="resetAll()">Delete all demo data</button></div></div>
+      <div class="panel"><h3>What this prototype does not yet include</h3><ul class="muted smalltext"><li>Secure sign-in and separate author/admin accounts.</li><li>Cloud database and remote backups.</li><li>Automated email/WhatsApp notifications.</li><li>Online payments or verified payment reconciliation.</li><li>Manuscript file uploads and secure storage.</li><li>Public website hosting, domain, analytics and production security.</li></ul></div>
+    </section>
+  </div>
+  <footer>RIKAL PUBLISHING ZAMBIA · Your Story, Our Expertise. · Local prototype — not connected to a live server.</footer>
+</main>
+</div>
+
+<div class="overlay" id="projectModal"><div class="modal"><div class="modalhead"><h2 id="projectModalTitle">New book project</h2><button class="close" onclick="closeModal('projectModal')">✕</button></div>
+<form id="projectForm"><input type="hidden" id="editProjectId"><div class="formgrid">
+<div class="field"><label>Author / customer name *</label><input id="pAuthor" required placeholder="Full name"></div><div class="field"><label>Email or WhatsApp *</label><input id="pContact" required placeholder="Email or phone"></div>
+<div class="field full"><label>Book / manuscript title *</label><input id="pTitle" required placeholder="Working title"></div>
+<div class="field"><label>Book category</label><select id="pGenre"><option>Personal development</option><option>Faith / Christian</option><option>Business</option><option>Fiction</option><option>Education</option><option>Biography / memoir</option><option>Children's book</option><option>Other</option></select></div>
+<div class="field"><label>Manuscript stage</label><select id="pStage"><option>Still writing</option><option>First draft ready</option><option>Needs editing</option><option>Final manuscript ready</option><option>Previously published</option></select></div>
+<div class="field"><label>Project status</label><select id="pStatus"><option>New enquiry</option><option>Awaiting manuscript</option><option>Editing</option><option>Design & formatting</option><option>Awaiting approval</option><option>Printing / digital setup</option><option>Completed</option><option>On hold</option></select></div>
+<div class="field"><label>Target completion date</label><input type="date" id="pDate"></div>
+<div class="field full"><label>Services requested (comma-separated)</label><input id="pServices" placeholder="Editing, cover design, formatting, eBook"></div>
+<div class="field full"><label>Notes / project brief</label><textarea id="pNotes" placeholder="Word count, audience, formats, deadline, special requirements…"></textarea></div>
+</div><div class="formactions"><button type="button" class="btn light" onclick="closeModal('projectModal')">Cancel</button><button class="btn dark" type="submit">Save project</button></div></form></div></div>
+
+<div class="overlay" id="quoteModal"><div class="modal"><div class="modalhead"><h2>New quotation</h2><button class="close" onclick="closeModal('quoteModal')">✕</button></div>
+<form id="quoteForm"><div class="formgrid">
+<div class="field"><label>Customer *</label><select id="qCustomer" required></select></div><div class="field"><label>Related project (optional)</label><select id="qProject"></select></div>
+<div class="field full"><label>Quote description *</label><input id="qDescription" required placeholder="e.g. Editing, cover design and eBook formatting"></div>
+<div class="field"><label>Amount (ZMW) *</label><input id="qAmount" required type="number" min="0" step="0.01" placeholder="0.00"></div><div class="field"><label>Valid until</label><input id="qExpiry" type="date"></div>
+<div class="field"><label>Payment terms</label><select id="qTerms"><option>50% deposit, balance on completion</option><option>Full payment upfront</option><option>Payment on agreed milestones</option><option>As agreed in writing</option></select></div><div class="field"><label>Quote status</label><select id="qStatus"><option>Draft</option><option>Sent</option><option>Accepted</option><option>Declined</option><option>Expired</option></select></div>
+<div class="field full"><label>Notes / exclusions</label><textarea id="qNotes" placeholder="Printing quantity, revisions, delivery, taxes or exclusions…"></textarea></div>
+</div><div class="formactions"><button type="button" class="btn light" onclick="closeModal('quoteModal')">Cancel</button><button class="btn dark" type="submit">Save quotation</button></div></form></div></div>
+
+<script>
+const DBKEY='rikalPublishingFullDemo_v1';
+const statuses=['New enquiry','Awaiting manuscript','Editing','Design & formatting','Awaiting approval','Printing / digital setup','Completed','On hold'];
+const services=[
+ {icon:'✍️',name:'Writing support',desc:'Book planning and writing assistance.',price:'Quote required'},
+ {icon:'📝',name:'Editing & proofreading',desc:'Improve clarity, consistency and grammar.',price:'Quote required'},
+ {icon:'🎨',name:'Professional cover design',desc:'Front cover, spine and back cover preparation.',price:'Quote required'},
+ {icon:'📐',name:'Interior layout & formatting',desc:'Print-ready paperback and digital layouts.',price:'Quote required'},
+ {icon:'🖨️',name:'Printing support',desc:'Print specifications and supplier coordination.',price:'Quote required'},
+ {icon:'📱',name:'eBook / digital publishing',desc:'Digital editions and publishing preparation.',price:'Quote required'},
+ {icon:'🔢',name:'ISBN & barcode preparation',desc:'Guidance and file preparation where applicable.',price:'Quote required'},
+ {icon:'📦',name:'Publishing package',desc:'A tailored bundle based on your manuscript.',price:'Custom quote'},
+ {icon:'📣',name:'Book launch & promotion',desc:'Promotional assets and launch support.',price:'Quote required'}
+];
+function blankDB(){return {projects:[],quotes:[],settings:{name:'Rikal Publishing Zambia',email:'rikalpublishingzambia@gmail.com',phone:'',currency:'K'}}}
+function loadDB(){try{return {...blankDB(),...JSON.parse(localStorage.getItem(DBKEY)||'{}')}}catch(e){return blankDB()}}
+let db=loadDB();
+function saveDB(){localStorage.setItem(DBKEY,JSON.stringify(db));renderAll()}
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function money(n){return (db.settings.currency||'K')+Number(n||0).toLocaleString('en-ZM',{maximumFractionDigits:2})}
+function badgeClass(s){if(['Completed','Accepted'].includes(s))return 'green';if(['Editing','Design & formatting','Printing / digital setup','Sent'].includes(s))return 'blue';if(['On hold','Declined','Expired'].includes(s))return 'red';return 'gold'}
+function showPage(page){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById('page-'+page).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.toggle('active',b.dataset.page===page));const names={dashboard:['Publishing dashboard','OVERVIEW'],projects:['Book projects','PROJECTS'],quotes:['Quotations','QUOTATIONS'],customers:['Authors & customers','CUSTOMERS'],enquiry:['Author enquiry form','ENQUIRIES'],services:['Services & pricing','CATALOGUE'],settings:['Settings & data','SETTINGS']};document.getElementById('pagetitle').textContent=names[page][0];document.getElementById('crumb').textContent=names[page][1];if(page==='quotes')renderQuotes();if(page==='customers')renderCustomers();if(page==='projects')renderProjects()}
+document.querySelectorAll('.nav button').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
+function openProject(id){const p=db.projects.find(x=>x.id===id);document.getElementById('projectForm').reset();document.getElementById('editProjectId').value=p?.id||'';document.getElementById('projectModalTitle').textContent=p?'Edit book project':'New book project';if(p){pAuthor.value=p.author;pContact.value=p.contact;pTitle.value=p.title;pGenre.value=p.genre;pStage.value=p.stage;pStatus.value=p.status;pDate.value=p.date||'';pServices.value=p.services;pNotes.value=p.notes||''}document.getElementById('projectModal').classList.add('show')}
+function closeModal(id){document.getElementById(id).classList.remove('show')}
+document.getElementById('projectForm').addEventListener('submit',e=>{e.preventDefault();const id=editProjectId.value||Date.now().toString();const old=db.projects.find(x=>x.id===id);const p={id,author:pAuthor.value.trim(),contact:pContact.value.trim(),title:pTitle.value.trim(),genre:pGenre.value,stage:pStage.value,status:pStatus.value,date:pDate.value,services:pServices.value.trim(),notes:pNotes.value.trim(),created:old?.created||new Date().toISOString()};if(old)db.projects=db.projects.map(x=>x.id===id?p:x);else db.projects.push(p);saveDB();closeModal('projectModal')});
+function openQuote(){const customers=[...new Map(db.projects.map(p=>[p.contact,{contact:p.contact,author:p.author}])).values()];qCustomer.innerHTML=customers.map(c=>`<option value="${esc(c.contact)}">${esc(c.author)} — ${esc(c.contact)}</option>`).join('');if(!customers.length)qCustomer.innerHTML='<option value="">Add a project/customer first</option>';qProject.innerHTML='<option value="">No linked project</option>'+db.projects.map(p=>`<option value="${p.id}">${esc(p.title)} — ${esc(p.author)}</option>`).join('');document.getElementById('quoteForm').reset();document.getElementById('quoteModal').classList.add('show')}
+document.getElementById('quoteForm').addEventListener('submit',e=>{e.preventDefault();if(!qCustomer.value){alert('Create a project with customer details first.');return}const project=db.projects.find(p=>p.id===qProject.value);db.quotes.push({id:'RZ-'+new Date().getFullYear()+'-'+String(db.quotes.length+1).padStart(3,'0'),contact:qCustomer.value,customer:db.projects.find(p=>p.contact===qCustomer.value)?.author||qCustomer.options[qCustomer.selectedIndex]?.text||'',projectId:qProject.value,book:project?.title||'Not linked',description:qDescription.value,amount:Number(qAmount.value),expiry:qExpiry.value,terms:qTerms.value,status:qStatus.value,notes:qNotes.value,created:new Date().toISOString()});saveDB();closeModal('quoteModal');showPage('quotes')});
+function renderProjects(){const q=(document.getElementById('projectSearch')?.value||'').toLowerCase(),s=document.getElementById('statusFilter')?.value||'';const arr=db.projects.filter(p=>(!s||p.status===s)&&[p.title,p.author,p.contact].join(' ').toLowerCase().includes(q));document.getElementById('projectRows').innerHTML=arr.length?arr.map(p=>`<tr><td><strong>${esc(p.title)}</strong><div class="muted smalltext">${esc(p.author)} · ${esc(p.contact)}</div></td><td>${esc(p.services||'—')}</td><td><select aria-label="Project status" onchange="setStatus('${p.id}',this.value)" style="min-width:160px;padding:7px"><option ${p.status===statuses[0]?'selected':''}>${statuses[0]}</option>${statuses.slice(1).map(s=>`<option ${p.status===s?'selected':''}>${s}</option>`).join('')}</select></td><td>${esc(p.date||'Not set')}</td><td><button class="btn light small" onclick="openProject('${p.id}')">Edit</button> <button class="btn danger small" onclick="deleteProject('${p.id}')">Delete</button></td></tr>`).join(''):'<tr><td colspan="5" class="empty">No matching projects yet.</td></tr>'}
+function setStatus(id,status){const p=db.projects.find(p=>p.id===id);if(p){p.status=status;saveDB()}}
+function deleteProject(id){if(confirm('Delete this project? Related quotation records will remain.')){db.projects=db.projects.filter(p=>p.id!==id);saveDB()}}
+function renderQuotes(){document.getElementById('quoteRows').innerHTML=db.quotes.length?db.quotes.slice().reverse().map(q=>`<tr><td><strong>${esc(q.id)}</strong><div class="muted smalltext">${esc(q.created.slice(0,10))}</div></td><td>${esc(q.customer)}<div class="muted smalltext">${esc(q.contact)}</div></td><td>${esc(q.book)}<div class="muted smalltext">${esc(q.description)}</div></td><td><strong>${money(q.amount)}</strong></td><td><span class="pill ${badgeClass(q.status)}">${esc(q.status)}</span><div><select onchange="updateQuoteStatus('${q.id}',this.value)" style="margin-top:5px;padding:5px;font-size:11px"><option ${q.status==='Draft'?'selected':''}>Draft</option><option ${q.status==='Sent'?'selected':''}>Sent</option><option ${q.status==='Accepted'?'selected':''}>Accepted</option><option ${q.status==='Declined'?'selected':''}>Declined</option><option ${q.status==='Expired'?'selected':''}>Expired</option></select></div></td><td><button class="btn light small" onclick="downloadQuote('${q.id}')">Export</button> <button class="btn danger small" onclick="deleteQuote('${q.id}')">Delete</button></td></tr>`).join(''):'<tr><td colspan="6" class="empty">No quotations saved. Create a project first, then create a quotation.</td></tr>'}
+function updateQuoteStatus(id,status){const q=db.quotes.find(q=>q.id===id);if(q){q.status=status;saveDB()}}
+function deleteQuote(id){if(confirm('Delete this quotation?')){db.quotes=db.quotes.filter(q=>q.id!==id);saveDB()}}
+function renderCustomers(){const map=new Map();db.projects.forEach(p=>{const k=p.contact.toLowerCase();if(!map.has(k))map.set(k,{author:p.author,contact:p.contact,projects:[],last:p.created});const c=map.get(k);c.projects.push(p.title);if(p.created>c.last)c.last=p.created});const arr=[...map.values()];document.getElementById('customerRows').innerHTML=arr.length?arr.map(c=>`<tr><td><strong>${esc(c.author)}</strong></td><td>${esc(c.contact)}</td><td>${c.projects.length}<div class="muted smalltext">${esc(c.projects.join(', '))}</div></td><td>${esc(c.last.slice(0,10))}</td></tr>`).join(''):'<tr><td colspan="4" class="empty">Customers will appear when you save a project.</td></tr>'}
+function renderDashboard(){statProjects.textContent=db.projects.length;statActive.textContent=db.projects.filter(p=>!['Completed','On hold'].includes(p.status)).length;statQuotes.textContent=db.quotes.length;statValue.textContent=money(db.quotes.reduce((a,q)=>a+q.amount,0));const recent=db.projects.slice().reverse().slice(0,5);recentProjects.innerHTML=recent.length?recent.map(p=>`<div class="rowline"><div><div class="project-title">${esc(p.title)}</div><div class="project-meta">${esc(p.author)} · ${esc(p.services||'Services not specified')}</div></div><span class="pill ${badgeClass(p.status)}">${esc(p.status)}</span></div>`).join(''):'<div class="empty">No projects yet. Add your first book project to get started.</div>';pipeline.innerHTML=statuses.map(s=>{const n=db.projects.filter(p=>p.status===s).length;return `<div style="margin:11px 0"><div style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:5px"><span>${esc(s)}</span><strong>${n}</strong></div><div style="height:6px;background:#edf0f5;border-radius:8px;overflow:hidden"><div style="height:100%;width:${db.projects.length?n/db.projects.length*100:0}%;background:${s==='Completed'?'#4a9b75':'#d5a84f'};border-radius:8px"></div></div></div>`}).join('')}
+function renderServices(){serviceGrid.innerHTML=services.map(s=>`<div class="service"><div class="emoji">${s.icon}</div><h3>${s.name}</h3><p>${s.desc}</p><div class="price">${s.price}</div></div>`).join('')}
+function renderAll(){renderDashboard();renderProjects();renderQuotes();renderCustomers();renderServices();document.getElementById('settingName').value=db.settings.name||'';document.getElementById('settingEmail').value=db.settings.email||'';document.getElementById('settingPhone').value=db.settings.phone||'';document.getElementById('settingCurrency').value=db.settings.currency||'K'}
+function saveSettings(){db.settings={name:settingName.value.trim(),email:settingEmail.value.trim(),phone:settingPhone.value.trim(),currency:settingCurrency.value};saveDB();settingsSaved.style.display='block';setTimeout(()=>settingsSaved.style.display='none',3000)}
+function download(filename,content,type='application/json'){const blob=new Blob([content],{type});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=filename;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+function exportAll(){download('rikal-publishing-backup.json',JSON.stringify(db,null,2))}
+function exportProjects(){download('rikal-publishing-projects.json',JSON.stringify(db.projects,null,2))}
+function exportCustomers(){const c=[...new Map(db.projects.map(p=>[p.contact,{author:p.author,contact:p.contact}])).values()];download('rikal-publishing-customers.json',JSON.stringify(c,null,2))}
+function exportProjectsCSV(){const rows=[['Title','Author','Contact','Category','Stage','Status','Target date','Services','Notes'],...db.projects.map(p=>[p.title,p.author,p.contact,p.genre,p.stage,p.status,p.date,p.services,p.notes])];const csv=rows.map(r=>r.map(v=>'"'+String(v??'').replace(/"/g,'""')+'"').join(',')).join('\r\n');download('rikal-publishing-projects.csv',csv,'text/csv')}
+function downloadQuote(id){const q=db.quotes.find(q=>q.id===id);if(!q)return;const text=`RIKAL PUBLISHING ZAMBIA\nYour Story, Our Expertise.\n\nQUOTATION: ${q.id}\nDate: ${q.created.slice(0,10)}\nCustomer: ${q.customer}\nContact: ${q.contact}\nBook: ${q.book}\nDescription: ${q.description}\nAmount: ${money(q.amount)}\nStatus: ${q.status}\nValid until: ${q.expiry||'Not specified'}\nPayment terms: ${q.terms}\nNotes: ${q.notes||'None'}\n\nThis is a draft quotation. Confirm scope and terms before issuing to the customer.`;download(q.id+'.txt',text,'text/plain')}
+function resetAll(){if(confirm('This permanently clears all demo projects, quotations and settings from this browser. Continue?')){db=blankDB();saveDB()}}
+
+document.getElementById('publicEnquiryForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const subject=encodeURIComponent('New publishing enquiry: '+document.getElementById('eBook').value.trim());
+  const body=encodeURIComponent(
+`RIKAL PUBLISHING ZAMBIA — NEW AUTHOR ENQUIRY
+
+Author name: ${document.getElementById('eName').value.trim()}
+Contact: ${document.getElementById('eContact').value.trim()}
+Book title: ${document.getElementById('eBook').value.trim()}
+Service requested: ${document.getElementById('eService').value}
+Manuscript status: ${document.getElementById('eStage').value}
+
+Book details:
+${document.getElementById('eMessage').value.trim()}
+
+Sent using the Rikal Publishing Zambia enquiry form.`
+  );
+  window.location.href='mailto:rikalpublishingzambia@gmail.com?subject='+subject+'&body='+body;
+});
+
+renderAll();
+</script>
+</body></html>
